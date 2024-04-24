@@ -23,12 +23,21 @@ const {isLoading, isError, data, error} = useQuery<IPost[]>({
       {{error?.message}}
     </div>
 
-    <div v-else v-for="post in data">
-      <div class="mb-10 border border-gray-700 rounded-xl py-5 px-10 transition-all hover:scale-105 hover:shadow-lg cursor-pointer">
-        <div>{{post.title}}</div>
-        <div>{{ post.body}}</div>
-      </div>
+    <div v-else class="card">
+      <DataTable :value="data">
+        <Column field="title" header="Title"></Column>
+        <Column field="body" header="Body"></Column>
+      </DataTable>
     </div>
+
+<!--    <div v-else v-for="post in data">-->
+<!--     -->
+
+<!--&lt;!&ndash;      <div class="mb-10 border border-gray-700 rounded-xl py-5 px-10 transition-all hover:scale-105 hover:shadow-lg cursor-pointer">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div>{{post.title}}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div>{{ post.body}}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    </div>-->
   </div>
 </BaseLayout>
 </template>
